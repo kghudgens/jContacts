@@ -33,7 +33,11 @@ public class Main {
                         if (viewAllorSpecific.equals("ALL")) {
                                 driver.viewAll();
                         } else {
-                                System.out.println("Please enter the last name of the contact you want to see.")
+                                System.out.println("Please enter the last name of the contact you want to see.");
+                                // Prompt user for the last name then call function, passing last name into
+                                // parameter
+                                String last_name = input.nextLine();
+                                driver.viewSpecific(last_name);
                         }
 
                 }

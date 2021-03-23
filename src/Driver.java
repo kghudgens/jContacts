@@ -13,9 +13,12 @@ public class Driver {
             Statement myStmt = myConn.createStatement();
             // Execute sql query
             ResultSet myRs = myStmt.executeQuery("SELECT * from contacts");
-            // process the result set
+            // process the result set into readable
             while (myRs.next()) {
-                System.out.println(myRs.getString("last_name") + ", " + myRs.getString("first_name"));
+                System.out.println("Date added: " + myRs.getDate("submission_date") + "Last Name: "
+                        + myRs.getString("last_name") + ", First Name" + myRs.getString("first_name") + "Phone Number: "
+                        + myRs.getString("phone_number") + ", Email Address: " + myRs.getString("email")
+                        + "Occupation: " + myRs.getString("occupation"));
             }
         } catch (Exception exc) {
             exc.printStackTrace();

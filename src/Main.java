@@ -25,7 +25,7 @@ public class Main {
                 // variable
                 // View first
                 if (userDecision.equals("VIEW")) {
-                        System.out.println("You Selected View");
+                        System.out.println("You Selected 'VIEW'");
                         // Ask user if they want to see all contacts or specfic
                         System.out.println("Would you like to see ALL contacts or a SPECIFIC contact");
                         String viewAllorSpecific = input.nextLine();
@@ -40,6 +40,30 @@ public class Main {
                                 driver.viewSpecific(last_name);
                         }
 
+                } else if (userDecision.equals("ADD")) {
+                        System.out.println("You selected 'ADD'");
+                        System.out.println("Use lowercase.");
+                        // Prompt for first name of your contact
+                        System.out.println("What is the first name of your new contact");
+                        String first_name = input.nextLine();
+
+                        // Prompt for first name of your contact
+                        System.out.println("What is the last name of your new contact");
+                        String last_name = input.nextLine();
+
+                        // Prompt for phone number of your contact
+                        System.out.println("What is the phone number of your new contact");
+                        String phone_number = input.nextLine();
+
+                        // Prompt for email address of your contact
+                        System.out.println("What is the email address of your new contact");
+                        String email = input.nextLine();
+
+                        // Prompt for occupation of your contact
+                        System.out.println("What is the occupation of your new contact");
+                        String occupation = input.nextLine();
+
+                        // driver.addContact(first_name, last_name, phone_number, email, occupation);
                 }
 
         }

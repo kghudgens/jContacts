@@ -35,6 +35,11 @@ public class Driver {
             // Execute sql query
             ResultSet myRs = myStmt.executeQuery("SELECT * from contacts WHERE last_name = " + "'" + last_name + "'");
             // process the result set into readable
+
+            // add logic that handles empty result
+            if (myRs.next() == false) {
+                System.out.println("'" + last_name + "', contact information has not been saved to this application.");
+            }
             while (myRs.next()) {
                 System.out.println("Date added: " + myRs.getDate("submission_date") + ", Last Name: "
                         + myRs.getString("last_name") + ", First Name: " + myRs.getString("first_name")

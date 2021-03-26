@@ -63,7 +63,7 @@ public class Main {
                         System.out.println("What is the occupation of your new contact");
                         String occupation = input.nextLine();
 
-                        // driver.addContact(first_name, last_name, phone_number, email, occupation);
+                        driver.addContact(first_name, last_name, phone_number, email, occupation);
                 }
 
         }

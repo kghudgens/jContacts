@@ -33,11 +33,10 @@ public class Driver {
             // Create a statement
             Statement myStmt = myConn.createStatement();
             // Execute sql query
-            // BUG fix the statment asking for last name
-            ResultSet myRs = myStmt.executeQuery("SELECT * from contacts WHERE last_name = " + last_name);
+            ResultSet myRs = myStmt.executeQuery("SELECT * from contacts WHERE last_name = " + "'" + last_name + "'");
             // process the result set into readable
             while (myRs.next()) {
-                System.out.println("Date added: " + myRs.getDate("submission_date") + "Last Name: "
+                System.out.println("Date added: " + myRs.getDate("submission_date") + ", Last Name: "
                         + myRs.getString("last_name") + ", First Name: " + myRs.getString("first_name")
                         + " Phone Number: " + myRs.getString("phone_number") + ", Email Address: "
                         + myRs.getString("email") + " Occupation: " + myRs.getString("occupation"));

@@ -60,7 +60,10 @@ public class Driver {
             // Create a statement
             Statement myStmt = myConn.createStatement();
             // Execute sql query
-            ResultSet myRs = myStmt.executeQuery(
+            // BUG
+            // Learn about prepared statements to correct your insert query
+            // figure out whether to use execute update or query
+            ResultSet myRs = myStmt.executeUpdate(
                     "INSERT INTO contacts(first_name, last_name, phone_number, email, occupation) VALUES (" + "'"
                             + first_name + "', '" + last_name + "'" + email + "', '" + occupation + "'");
             // process the result set into readable

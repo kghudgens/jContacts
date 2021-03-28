@@ -64,6 +64,8 @@ public class Main {
                         String occupation = input.nextLine();
 
                         driver.addContact(first_name, last_name, phone_number, email, occupation);
+                } else if (userDecision.equals("DELETE")) {
+
                 }
 
         }

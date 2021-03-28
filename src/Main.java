@@ -66,6 +66,8 @@ public class Main {
                         driver.addContact(first_name, last_name, phone_number, email, occupation);
                 } else if (userDecision.equals("DELETE")) {
 
+                } else if (userDecision.equals("UPDATE")) {
+
                 }
 
         }

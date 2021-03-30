@@ -78,6 +78,8 @@ public class Driver {
     public static void addContact(String first_name, String last_name, String phone_number, String email,
             String occupation) {
         // Prepare variables for prepared statement to be inserted into DB
+        // Redundant code here, take it out and make the prepared statement reflect the
+        // params
         String first = first_name;
         String last = last_name;
         String number = phone_number;
@@ -148,6 +150,14 @@ public class Driver {
         }
     }
 
+    /**
+     * Creates query to update selected values
+     * 
+     * @param first_name
+     * @param last_name
+     * @param toBeUpdatedValue
+     * @param updatedColumn
+     */
     public static void updateContact(String first_name, String last_name, String toBeUpdatedValue,
             String updatedColumn) {
         try {

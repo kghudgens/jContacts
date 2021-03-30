@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Driver {
+    /**
+     * Returns all values in the contact book MySQL table
+     */
     public static void viewAll() {
         try {
             // Get connection to database
@@ -26,6 +29,11 @@ public class Driver {
         }
     }
 
+    /**
+     * Returns the "last name " column value that matches in the MySQL table
+     * 
+     * @param last_name
+     */
     public static void viewSpecific(String last_name) {
         try {
             // Get connection to database
@@ -52,6 +60,15 @@ public class Driver {
         }
     }
 
+    /**
+     * Allows user to make a insert query to the contact book MySQL table.
+     * 
+     * @param first_name
+     * @param last_name
+     * @param phone_number
+     * @param email
+     * @param occupation
+     */
     public static void addContact(String first_name, String last_name, String phone_number, String email,
             String occupation) {
         // Prepare variables for prepared statement to be inserted into DB
@@ -85,6 +102,7 @@ public class Driver {
             // execute the prepared statement
             preparedStmt.execute();
 
+            // close the connection to the database
             myConn.close();
 
         } catch (Exception exc) {

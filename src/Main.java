@@ -74,7 +74,7 @@ public class Main {
                         System.out.println("Please enter the last name of the contact you want to delete.");
                         String last_name = input.nextLine();
 
-                        // driver.deleteContact(first_name, last_name);
+                        driver.deleteContact(first_name, last_name);
 
                 } else if (userDecision.equals("UPDATE")) {
 

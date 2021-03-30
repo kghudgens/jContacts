@@ -116,6 +116,16 @@ public class Driver {
         }
     }
 
+    /**
+     * Delete the contact that matches the entered first and last name
+     * 
+     * @param first_name
+     * @param last_name
+     */
+    public static void deleteContact(String first_name, String last_name) {
+
+    }
+
     public static void main(String[] args) {
 
     }

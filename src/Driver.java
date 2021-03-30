@@ -24,6 +24,9 @@ public class Driver {
                         + " Phone Number: " + myRs.getString("phone_number") + ", Email Address: "
                         + myRs.getString("email") + " Occupation: " + myRs.getString("occupation"));
             }
+            // close the connection to the database
+            myConn.close();
+
         } catch (Exception exc) {
             exc.printStackTrace();
         }
@@ -54,7 +57,10 @@ public class Driver {
                         + myRs.getString("last_name") + ", First Name: " + myRs.getString("first_name")
                         + " Phone Number: " + myRs.getString("phone_number") + ", Email Address: "
                         + myRs.getString("email") + " Occupation: " + myRs.getString("occupation"));
+
             }
+            // close the connection to the database
+            myConn.close();
         } catch (Exception exc) {
             exc.printStackTrace();
         }

@@ -64,7 +64,17 @@ public class Main {
                         String occupation = input.nextLine();
 
                         driver.addContact(first_name, last_name, phone_number, email, occupation);
+
                 } else if (userDecision.equals("DELETE")) {
+                        System.out.println("You selected 'DELETE'");
+
+                        // Collect both first and last name of the contact wanting to delete
+                        System.out.println("Please enter the first name of the contact you want to delete.");
+                        String first_name = input.nextLine();
+                        System.out.println("Please enter the last name of the contact you want to delete.");
+                        String last_name = input.nextLine();
+
+                        // driver.deleteContact(first_name, last_name);
 
                 } else if (userDecision.equals("UPDATE")) {
 

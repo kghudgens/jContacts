@@ -123,7 +123,29 @@ public class Driver {
      * @param last_name
      */
     public static void deleteContact(String first_name, String last_name) {
+        try {
+            // Get connection to database
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
+                    "2727Gonzalo!");
+            // Create a statement
+            Statement myStmt = myConn.createStatement();
 
+            // Create sql command for deleting
+            String query = "DELETE FROM contacts WHERE first_name= ? AND last_name = ? ";
+
+            // Create the prepared statement
+            PreparedStatement preparedStmt = myConn.prepareStatement(query);
+            preparedStmt.setString(1, first_name);
+            preparedStmt.setString(2, last_name);
+
+            // Execute the statement
+            preparedStmt.execute();
+
+            // close the connection to the database
+            myConn.close();
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {

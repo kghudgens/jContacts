@@ -17,7 +17,7 @@ public class Main {
 
                 // Create logic that decides what the user wants to do
                 System.out.println(userName + ", What you like to do?");
-                System.out.println("Your options are ADD a contact, VIEW a contact, and DELETE a contact");
+                System.out.println("Your options are ADD, VIEW, UPDATE, or DELETE a contact");
                 // Get the users input
                 String userDecision = input.nextLine();
 

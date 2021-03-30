@@ -53,26 +53,33 @@ public class Driver {
 
     public static void addContact(String first_name, String last_name, String phone_number, String email,
             String occupation) {
+        // Prepare variables for prepared statement to be inserted into DB
+        String first = first_name;
+        String last = last_name;
+        String number = phone_number;
+        String e_address = email;
+        String job = occupation;
+
         try {
             // Get connection to database
             Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
                     "2727Gonzalo!");
+
             // Create a statement
             Statement myStmt = myConn.createStatement();
+
             // Execute sql query
+
             // BUG
             // Learn about prepared statements to correct your insert query
             // figure out whether to use execute update or query
+
             ResultSet myRs = myStmt.executeUpdate(
                     "INSERT INTO contacts(first_name, last_name, phone_number, email, occupation) VALUES (" + "'"
                             + first_name + "', '" + last_name + "'" + email + "', '" + occupation + "'");
+
             // process the result set into readable
-            while (myRs.next()) {
-                System.out.println("Date added: " + myRs.getDate("submission_date") + ", Last Name: "
-                        + myRs.getString("last_name") + ", First Name: " + myRs.getString("first_name")
-                        + " Phone Number: " + myRs.getString("phone_number") + ", Email Address: "
-                        + myRs.getString("email") + " Occupation: " + myRs.getString("occupation"));
-            }
+
         } catch (Exception exc) {
             exc.printStackTrace();
         }

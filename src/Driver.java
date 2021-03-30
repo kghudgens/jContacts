@@ -148,8 +148,7 @@ public class Driver {
         }
     }
 
-    public static void updateContact(String first_name, String last_name, String phone_number, String email,
-    String occupation) {
+    public static void updateContact(String first_name, String last_name, String toBeUpdated) {
         try {
             // Get connection to database
             Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
@@ -158,7 +157,7 @@ public class Driver {
             Statement myStmt = myConn.createStatement();
 
             // Create sql command for deleting
-            String query = ""
+            String query = "update contacts set ? = ? where first_name = ? and last_name = ?";
 
             // close the connection to the database
             myConn.close();

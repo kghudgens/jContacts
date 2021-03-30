@@ -1,5 +1,6 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -68,17 +69,23 @@ public class Driver {
             // Create a statement
             Statement myStmt = myConn.createStatement();
 
-            // Execute sql query
+            // The sql insert statement
+            // values will be filled in by the prepared statement
+            String query = "insert into contacts(first_name, last_name, phone_number,"
+                    + "email, occupation) values (?,?,?,?,?)";
 
-            // BUG
-            // Learn about prepared statements to correct your insert query
-            // figure out whether to use execute update or query
+            // Finished the prepared statement
+            PreparedStatement preparedStmt = myConn.prepareStatement(query);
+            preparedStmt.setString(1, first);
+            preparedStmt.setString(2, last);
+            preparedStmt.setString(3, number);
+            preparedStmt.setString(4, e_address);
+            preparedStmt.setString(5, job);
 
-            ResultSet myRs = myStmt.executeUpdate(
-                    "INSERT INTO contacts(first_name, last_name, phone_number, email, occupation) VALUES (" + "'"
-                            + first_name + "', '" + last_name + "'" + email + "', '" + occupation + "'");
+            // execute the prepared statement
+            preparedStmt.execute();
 
-            // process the result set into readable
+            myConn.close();
 
         } catch (Exception exc) {
             exc.printStackTrace();

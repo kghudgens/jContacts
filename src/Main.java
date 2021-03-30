@@ -77,6 +77,30 @@ public class Main {
                         driver.deleteContact(first_name, last_name);
 
                 } else if (userDecision.equals("UPDATE")) {
+                        System.out.println("You selected 'UPDATE'");
+
+                        // Collect the first and last name of the contact wanting to update
+                        while (true) {
+                                System.out.println("Please enter the first name of the contact you want to update.");
+                                String first_name = input.nextLine();
+                                System.out.println("Please enter the last name of the contact you want to update.");
+                                String last_name = input.nextLine();
+
+                                System.out.println("Are you sure you want to update " + first_name + " " + last_name
+                                                + "'s information. YES or NO");
+                                String verifyUpdate = input.nextLine();
+
+                                if (verifyUpdate.equals("YES")) {
+                                        break;
+                                } else if (verifyUpdate.equals("NO")) {
+                                        System.out.println(
+                                                        "Please enter the correct first and last name of the contact you would like to update");
+                                } else {
+                                        System.out.println("You didnt enter the correct answer. YES or NO");
+                                }
+                        }
+
+                        // driver.updateContact(first_name, last_name, toBeUpdated);
 
                 }
 

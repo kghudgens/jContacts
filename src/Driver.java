@@ -148,6 +148,25 @@ public class Driver {
         }
     }
 
+    public static void updateContact(String first_name, String last_name, String phone_number, String email,
+    String occupation) {
+        try {
+            // Get connection to database
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
+                    "2727Gonzalo!");
+            // Create a statement
+            Statement myStmt = myConn.createStatement();
+
+            // Create sql command for deleting
+            String query = ""
+
+            // close the connection to the database
+            myConn.close();
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
 
     }

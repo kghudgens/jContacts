@@ -78,13 +78,16 @@ public class Main {
 
                 } else if (userDecision.equals("UPDATE")) {
                         System.out.println("You selected 'UPDATE'");
+                        // ensuring variables all in the same scope
+                        String first_name;
+                        String last_name;
 
                         // Collect the first and last name of the contact wanting to update
                         while (true) {
                                 System.out.println("Please enter the first name of the contact you want to update.");
-                                String first_name = input.nextLine();
+                                first_name = input.nextLine();
                                 System.out.println("Please enter the last name of the contact you want to update.");
-                                String last_name = input.nextLine();
+                                last_name = input.nextLine();
 
                                 System.out.println("Are you sure you want to update " + first_name + " " + last_name
                                                 + "'s information. YES or NO");
@@ -99,8 +102,16 @@ public class Main {
                                         System.out.println("You didnt enter the correct answer. YES or NO");
                                 }
                         }
+                        // inform user what they can update
+                        System.out.println("What would you like to update? Options are:"
+                                        + "FIRST NAME \n LAST NAME \n PHONE NUMBER \n EMAIL \n OCCUPATION");
 
-                        // driver.updateContact(first_name, last_name, toBeUpdated);
+                        // Collect the choices
+                        String updateChoice = input.nextLine();
+                        System.out.println("What would you like to update it to? ");
+                        String updatedValue = input.nextLine();
+
+                        driver.updateContact(first_name, last_name, updateChoice, updatedValue);
 
                 }
 

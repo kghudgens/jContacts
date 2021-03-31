@@ -77,14 +77,6 @@ public class Driver {
      */
     public static void addContact(String first_name, String last_name, String phone_number, String email,
             String occupation) {
-        // Prepare variables for prepared statement to be inserted into DB
-        // Redundant code here, take it out and make the prepared statement reflect the
-        // params
-        String first = first_name;
-        String last = last_name;
-        String number = phone_number;
-        String e_address = email;
-        String job = occupation;
 
         try {
             // Get connection to database
@@ -101,11 +93,11 @@ public class Driver {
 
             // Finished the prepared statement
             PreparedStatement preparedStmt = myConn.prepareStatement(query);
-            preparedStmt.setString(1, first);
-            preparedStmt.setString(2, last);
-            preparedStmt.setString(3, number);
-            preparedStmt.setString(4, e_address);
-            preparedStmt.setString(5, job);
+            preparedStmt.setString(1, first_name);
+            preparedStmt.setString(2, last_name);
+            preparedStmt.setString(3, phone_number);
+            preparedStmt.setString(4, email);
+            preparedStmt.setString(5, occupation);
 
             // execute the prepared statement
             preparedStmt.execute();

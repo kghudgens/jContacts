@@ -107,11 +107,11 @@ public class Main {
                                         + "FIRST NAME \n LAST NAME \n PHONE NUMBER \n EMAIL \n OCCUPATION");
 
                         // Collect the choices
-                        String updateChoice = input.nextLine();
+                        String updateColumnChoice = input.nextLine();
                         System.out.println("What would you like to update it to? ");
                         String updatedValue = input.nextLine();
 
-                        driver.updateContact(first_name, last_name, updateChoice, updatedValue);
+                        driver.updateContact(first_name, last_name, updateColumnChoice, updatedValue);
 
                 }
                 input.close();

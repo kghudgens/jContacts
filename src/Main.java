@@ -114,6 +114,7 @@ public class Main {
                         driver.updateContact(first_name, last_name, updateChoice, updatedValue);
 
                 }
+                input.close();
 
         }
 }

@@ -83,9 +83,6 @@ public class Driver {
             Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
                     "2727Gonzalo!");
 
-            // Create a statement
-            Statement myStmt = myConn.createStatement();
-
             // The sql insert statement
             // values will be filled in by the prepared statement
             String query = "insert into contacts(first_name, last_name, phone_number,"
@@ -121,8 +118,6 @@ public class Driver {
             // Get connection to database
             Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
                     "2727Gonzalo!");
-            // Create a statement
-            Statement myStmt = myConn.createStatement();
 
             // Create sql command for deleting
             String query = "DELETE FROM contacts WHERE first_name= ? AND last_name = ? ";
@@ -156,8 +151,6 @@ public class Driver {
             // Get connection to database
             Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
                     "2727Gonzalo!");
-            // Create a statement
-            Statement myStmt = myConn.createStatement();
 
             // Create sql command for deleting
             String query = "UPDATE contacts SET ? = '?' WHERE first_name = '?' AND last_name = '?' ";

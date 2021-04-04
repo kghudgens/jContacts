@@ -21,10 +21,13 @@ public class Main {
                 // Get the users input
                 String userDecision = input.nextLine();
 
+                // convert the users input to lower case for comparison
+                userDecision = userDecision.toLowerCase();
+
                 // Enter if else statement to divide up whats next from the userDecision
                 // variable
                 // View first
-                if (userDecision.equals("VIEW")) {
+                if (userDecision.equals("view")) {
                         System.out.println("You Selected 'VIEW'");
                         // Ask user if they want to see all contacts or specfic
                         System.out.println("Would you like to see ALL contacts or a SPECIFIC contact");
@@ -40,9 +43,8 @@ public class Main {
                                 driver.viewSpecific(last_name);
                         }
 
-                } else if (userDecision.equals("ADD")) {
+                } else if (userDecision.equals("add")) {
                         System.out.println("You selected 'ADD'");
-                        System.out.println("Use lowercase.");
                         // Prompt for first name of your contact
                         System.out.println("What is the first name of your new contact");
                         String first_name = input.nextLine();
@@ -65,7 +67,7 @@ public class Main {
 
                         driver.addContact(first_name, last_name, phone_number, email, occupation);
 
-                } else if (userDecision.equals("DELETE")) {
+                } else if (userDecision.equals("delete")) {
                         System.out.println("You selected 'DELETE'");
 
                         // Collect both first and last name of the contact wanting to delete
@@ -76,7 +78,7 @@ public class Main {
 
                         driver.deleteContact(first_name, last_name);
 
-                } else if (userDecision.equals("UPDATE")) {
+                } else if (userDecision.equals("update")) {
                         System.out.println("You selected 'UPDATE'");
                         // ensuring variables all in the same scope
                         String first_name;
@@ -113,6 +115,8 @@ public class Main {
 
                         driver.updateContact(first_name, last_name, updateColumnChoice, updatedValue);
 
+                } else {
+                        System.out.println("You didnt select one of the above options.");
                 }
                 input.close();
 

@@ -93,7 +93,10 @@ public class Main {
 
                                 System.out.println("Are you sure you want to update " + first_name + " " + last_name
                                                 + "'s information. YES or NO");
+
                                 String verifyUpdate = input.nextLine();
+                                // lower for comparison
+                                verifyUpdate = verifyUpdate.toLowerCase();
 
                                 if (verifyUpdate.equals("YES")) {
                                         break;

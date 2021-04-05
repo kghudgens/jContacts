@@ -152,14 +152,17 @@ public class Driver {
             Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
                     "2727Gonzalo!");
 
-            // Create sql command for deleting
-            String query = "UPDATE contacts SET ? = '?' WHERE first_name = '?' AND last_name = '?' ";
+            // Create sql command for updating
+            String query = "UPDATE contacts SET " + updatedColumn + " = ? WHERE first_name = ? AND last_name = ? ";
+
+            // String query = "UPDATE contacts SET ? = '?' WHERE first_name = '?' AND
+            // last_name = '?' ";
 
             PreparedStatement preparedStmt = myConn.prepareStatement(query);
-            preparedStmt.setString(1, updatedColumn);
-            preparedStmt.setString(2, toBeUpdatedValue);
-            preparedStmt.setString(3, first_name);
-            preparedStmt.setString(4, last_name);
+            // preparedStmt.setString(1, updatedColumn);
+            preparedStmt.setString(1, toBeUpdatedValue);
+            preparedStmt.setString(2, first_name);
+            preparedStmt.setString(3, last_name);
 
             // push prepared statement to the database
             preparedStmt.executeUpdate();

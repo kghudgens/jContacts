@@ -155,11 +155,7 @@ public class Driver {
             // Create sql command for updating
             String query = "UPDATE contacts SET " + updatedColumn + " = ? WHERE first_name = ? AND last_name = ? ";
 
-            // String query = "UPDATE contacts SET ? = '?' WHERE first_name = '?' AND
-            // last_name = '?' ";
-
             PreparedStatement preparedStmt = myConn.prepareStatement(query);
-            // preparedStmt.setString(1, updatedColumn);
             preparedStmt.setString(1, toBeUpdatedValue);
             preparedStmt.setString(2, first_name);
             preparedStmt.setString(3, last_name);

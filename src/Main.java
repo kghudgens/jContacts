@@ -29,9 +29,12 @@ public class Main {
                         if (userDecision.equals("view")) {
                                 System.out.println("You Selected 'VIEW'");
                                 // Ask user if they want to see all contacts or specfic
+
                                 System.out.println("Would you like to see ALL contacts or a SPECIFIC contact");
                                 String viewAllorSpecific = input.nextLine();
-                                // Take the viewAllorSpecific and make if message with it
+
+                                // Take the viewAllorSpecific variable and compare its value to see whether to
+                                // show all available contacts or a specific
                                 if (viewAllorSpecific.equals("ALL")) {
                                         driver.viewAll();
                                 } else {
@@ -40,6 +43,8 @@ public class Main {
                                         // Prompt user for the last name then call function, passing last name into
                                         // parameter
                                         String last_name = input.nextLine();
+
+                                        // Call function that can shows specific users
                                         driver.viewSpecific(last_name);
                                 }
 

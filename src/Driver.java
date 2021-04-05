@@ -102,6 +102,9 @@ public class Driver {
             // close the connection to the database
             myConn.close();
 
+            // Verification message
+            System.out.println(first_name + " " + last_name + " has been added to the contact book.");
+
         } catch (Exception exc) {
             exc.printStackTrace();
         }
@@ -132,6 +135,10 @@ public class Driver {
 
             // close the connection to the database
             myConn.close();
+
+            // verification message for the user
+            System.out.println("The contact for " + first_name + " " + last_name + ", has been deleted.");
+
         } catch (Exception exc) {
             exc.printStackTrace();
         }
@@ -165,6 +172,9 @@ public class Driver {
 
             // close the connection to the database
             myConn.close();
+
+            // verification message shown to user
+            System.out.println("The contact information for " + first_name + " " + last_name + " has been updated");
         } catch (Exception exc) {
             exc.printStackTrace();
         }

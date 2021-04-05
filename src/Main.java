@@ -64,6 +64,8 @@ public class Main {
                                 // Prompt for occupation of your contact
                                 System.out.println("What is the occupation of your new contact");
                                 String occupation = input.nextLine();
+                                // close the scanner
+                                input.close();
 
                                 driver.addContact(first_name, last_name, phone_number, email, occupation);
 
@@ -75,6 +77,8 @@ public class Main {
                                 String first_name = input.nextLine();
                                 System.out.println("Please enter the last name of the contact you want to delete.");
                                 String last_name = input.nextLine();
+                                // close the scanner
+                                input.close();
 
                                 driver.deleteContact(first_name, last_name);
 
@@ -117,6 +121,9 @@ public class Main {
                                 String updateColumnChoice = input.nextLine();
                                 System.out.println("What would you like to update it to? ");
                                 String updatedValue = input.nextLine();
+
+                                // close the scanner
+                                input.close();
 
                                 driver.updateContact(first_name, last_name, updateColumnChoice, updatedValue);
 

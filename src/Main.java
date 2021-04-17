@@ -37,6 +37,7 @@ public class Main {
                                 // show all available contacts or a specific
                                 if (viewAllorSpecific.equals("ALL")) {
                                         driver.viewAll();
+                                        break;
                                 } else {
                                         System.out.println(
                                                         "Please enter the last name of the contact you want to see.");
@@ -46,6 +47,7 @@ public class Main {
 
                                         // Call function that can shows specific users
                                         driver.viewSpecific(last_name);
+                                        break;
                                 }
 
                         } else if (userDecision.equalsIgnoreCase("add")) {
@@ -73,6 +75,7 @@ public class Main {
                                 input.close();
 
                                 driver.addContact(first_name, last_name, phone_number, email, occupation);
+                                break;
 
                         } else if (userDecision.equalsIgnoreCase("delete")) {
                                 System.out.println("You selected 'DELETE'");
@@ -86,6 +89,7 @@ public class Main {
                                 input.close();
 
                                 driver.deleteContact(first_name, last_name);
+                                break;
 
                         } else if (userDecision.equalsIgnoreCase("update")) {
                                 System.out.println("You selected 'UPDATE'");
@@ -106,12 +110,10 @@ public class Main {
                                                         + last_name + "'s information. YES or NO");
 
                                         String verifyUpdate = input.nextLine();
-                                        // lower for comparison
-                                        // verifyUpdate = verifyUpdate.toLowerCase();
 
-                                        if (verifyUpdate.equals("YES")) {
+                                        if (verifyUpdate.equalsIgnoreCase("no")) {
                                                 break;
-                                        } else if (verifyUpdate.equals("NO")) {
+                                        } else if (verifyUpdate.equalsIgnoreCase("no")) {
                                                 System.out.println(
                                                                 "Please enter the correct first and last name of the contact you would like to update");
                                         } else {
@@ -131,6 +133,7 @@ public class Main {
                                 input.close();
 
                                 driver.updateContact(first_name, last_name, updateColumnChoice, updatedValue);
+                                break;
 
                         } else {
                                 // User submitted incorrect value

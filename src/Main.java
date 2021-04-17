@@ -9,15 +9,15 @@ public class Main {
                 Scanner input = new Scanner(System.in);
 
                 // Welcome the user
-                System.out.println("Welcome to jContacts, a contact book powered by Java!");
-                System.out.println("What is your name?");
+                System.out.println("\nWelcome to jContacts, a contact book powered by Java!");
+                System.out.println("\nWhat is your name?");
 
                 String userName = input.nextLine();
-                System.out.println("Hello " + userName + ", let us get started.");
+                System.out.println("Hello " + userName + ", let us get started.\n");
 
                 // Create logic that decides what the user wants to do
-                System.out.println(userName + ", What you like to do?");
-                System.out.println("Your options are ADD, VIEW, UPDATE, or DELETE a contact");
+                System.out.println("What would you like to do with your contacts?");
+                System.out.println("\nYour options are ADD, VIEW, UPDATE, or DELETE a contact\n");
 
                 while (true) {
                         // Get the users input
@@ -30,12 +30,13 @@ public class Main {
                                 System.out.println("You Selected 'VIEW'");
                                 // Ask user if they want to see all contacts or specfic
 
-                                System.out.println("Would you like to see ALL contacts or a SPECIFIC contact");
+                                System.out.println(
+                                                "Would you like to see ALL of the contacts saved or a SPECIFIC contact?");
                                 String viewAllorSpecific = input.nextLine();
 
                                 // Take the viewAllorSpecific variable and compare its value to see whether to
                                 // show all available contacts or a specific
-                                if (viewAllorSpecific.equals("ALL")) {
+                                if (viewAllorSpecific.equalsIgnoreCase("ALL")) {
                                         driver.viewAll();
                                         break;
                                 } else {
@@ -121,8 +122,9 @@ public class Main {
                                         }
                                 }
                                 // inform user what they can update
-                                System.out.println("What would you like to update? Options are:"
-                                                + "\nFIRST NAME \n LAST NAME \n PHONE NUMBER \n EMAIL \n OCCUPATION");
+                                System.out.println(
+                                                "What portion of the contact would you like to update? Your options are:"
+                                                                + "\nFIRST NAME \n LAST NAME \n PHONE NUMBER \n EMAIL \n OCCUPATION");
 
                                 // Collect the choices
                                 String updateColumnChoice = input.nextLine();
@@ -138,7 +140,7 @@ public class Main {
                         } else {
                                 // User submitted incorrect value
                                 System.out.println("You didnt select one of the above options.");
-                                System.out.println("Please select again from the provided choices.");
+                                System.out.println("Please select again from the provided choices\n.");
 
                         }
                         continue;

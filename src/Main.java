@@ -26,7 +26,7 @@ public class Main {
                         // convert the users input to lower case for comparison
                         userDecision = userDecision.toLowerCase();
 
-                        if (userDecision.equals("view")) {
+                        if (userDecision.equalsIgnoreCase("view")) {
                                 System.out.println("You Selected 'VIEW'");
                                 // Ask user if they want to see all contacts or specfic
 
@@ -48,7 +48,7 @@ public class Main {
                                         driver.viewSpecific(last_name);
                                 }
 
-                        } else if (userDecision.equals("add")) {
+                        } else if (userDecision.equalsIgnoreCase("add")) {
                                 System.out.println("You selected 'ADD'");
                                 // Prompt for first name of your contact
                                 System.out.println("What is the first name of your new contact");
@@ -74,7 +74,7 @@ public class Main {
 
                                 driver.addContact(first_name, last_name, phone_number, email, occupation);
 
-                        } else if (userDecision.equals("delete")) {
+                        } else if (userDecision.equalsIgnoreCase("delete")) {
                                 System.out.println("You selected 'DELETE'");
 
                                 // Collect both first and last name of the contact wanting to delete
@@ -87,7 +87,7 @@ public class Main {
 
                                 driver.deleteContact(first_name, last_name);
 
-                        } else if (userDecision.equals("update")) {
+                        } else if (userDecision.equalsIgnoreCase("update")) {
                                 System.out.println("You selected 'UPDATE'");
                                 // ensuring variables all in the same scope
                                 String first_name;

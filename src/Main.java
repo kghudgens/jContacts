@@ -27,11 +27,11 @@ public class Main {
                         userDecision = userDecision.toLowerCase();
 
                         if (userDecision.equalsIgnoreCase("view")) {
-                                System.out.println("You Selected 'VIEW'");
+                                System.out.println("You Selected 'VIEW'\n");
                                 // Ask user if they want to see all contacts or specfic
 
                                 System.out.println(
-                                                "Would you like to see ALL of the contacts saved or a SPECIFIC contact?");
+                                                "Would you like to see ALL of the contacts saved or a SPECIFIC contact?\n");
                                 String viewAllorSpecific = input.nextLine();
 
                                 // Take the viewAllorSpecific variable and compare its value to see whether to

@@ -98,14 +98,7 @@ public class Main {
 
                                         driver.deleteContact(first_name, last_name);
                                         break;
-                                case 4:
-                                        break;
-                                default:
-
-                        }
-                        // convert the users input to lower case for comparison
-                        if (userDecision.equalsIgnoreCase("update")) {
-                                System.out.println("You selected 'UPDATE'");
+                                case 4:System.out.println("You selected 'UPDATE'");
 
                                 // Collect the first and last name of the contact wanting to update
                                 while (true) {
@@ -145,12 +138,11 @@ public class Main {
 
                                 driver.updateContact(first_name, last_name, updateColumnChoice, updatedValue);
                                 break;
-
-                        } else {
-                                // User submitted incorrect value
-                                System.out.println("You didnt select one of the above options.");
+                                        
+                                default:   System.out.println("You didnt select one of the above options.");
                                 System.out.println("Please select again from the provided choices\n.");
 
+                        }
                         }
                         continue;
                 }

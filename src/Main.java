@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class Main {
 
-        static Driver driver = new Driver();
-
         public static void main(String[] args) {
+
+                Driver driver = new Driver();
                 // Create scanner object for repeated use
                 Scanner input = new Scanner(System.in);
 
@@ -17,12 +17,24 @@ public class Main {
 
                 // Create logic that decides what the user wants to do
                 System.out.println("What would you like to do with your contacts?");
+                // Create menu that works with switch statement
+                System.out.println("1. Add\n2. View\n3. Update\n4. Delete");
                 System.out.println("\nYour options are ADD, VIEW, UPDATE, or DELETE a contact\n");
 
                 while (true) {
+
                         // Get the users input
                         String userDecision = input.nextLine();
 
+                        // Switch statement that better controls the flow
+                        switch (userDecision) {
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                default:
+
+                        }
                         // convert the users input to lower case for comparison
                         userDecision = userDecision.toLowerCase();
 

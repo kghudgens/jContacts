@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Main {
 
         public static void main(String[] args) {
+                String first_name;
+                String last_name;
 
                 Driver driver = new Driver();
                 // Create scanner object for repeated use
@@ -29,9 +31,74 @@ public class Main {
                         // Switch statement that better controls the flow
                         switch (userDecision) {
                                 case 1:
+                                        System.out.println("You Selected 'VIEW'\n");
+                                        // Ask user if they want to see all contacts or specfic
+
+                                        System.out.println(
+                                                        "Would you like to see ALL of the contacts saved or a SPECIFIC contact?\n");
+                                        String viewAllorSpecific = input.nextLine();
+
+                                        // Take the viewAllorSpecific variable and compare its value to see whether to
+                                        // show all available contacts or a specific
+                                        if (viewAllorSpecific.equalsIgnoreCase("ALL")) {
+                                                driver.viewAll();
+                                                break;
+                                        } else {
+                                                System.out.println(
+                                                                "Please enter the last name of the contact you want to see.");
+                                                // Prompt user for the last name then call function, passing last name
+                                                // into
+                                                // parameter
+                                                last_name = input.nextLine();
+
+                                                // Call function that can shows specific users
+                                                driver.viewSpecific(last_name);
+                                                break;
+                                        }
                                 case 2:
+                                        System.out.println("You selected 'ADD'");
+                                        // Prompt for first name of your contact
+                                        System.out.println("What is the first name of your new contact");
+                                        first_name = input.nextLine();
+
+                                        // Prompt for first name of your contact
+                                        System.out.println("What is the last name of your new contact");
+                                        last_name = input.nextLine();
+
+                                        // Prompt for phone number of your contact
+                                        System.out.println("What is the phone number of your new contact");
+                                        String phone_number = input.nextLine();
+
+                                        // Prompt for email address of your contact
+                                        System.out.println("What is the email address of your new contact");
+                                        String email = input.nextLine();
+
+                                        // Prompt for occupation of your contact
+                                        System.out.println("What is the occupation of your new contact");
+                                        String occupation = input.nextLine();
+                                        // close the scanner
+                                        input.close();
+
+                                        driver.addContact(first_name, last_name, phone_number, email, occupation);
+                                        break;
+
                                 case 3:
+                                        System.out.println("You selected 'DELETE'");
+
+                                        // Collect both first and last name of the contact wanting to delete
+                                        System.out.println(
+                                                        "Please enter the first name of the contact you want to delete.");
+                                        first_name = input.nextLine();
+                                        System.out.println(
+                                                        "Please enter the last name of the contact you want to delete.");
+                                        last_name = input.nextLine();
+                                        // close the scanner
+                                        input.close();
+
+                                        driver.deleteContact(first_name, last_name);
+                                        break;
                                 case 4:
+
                                 default:
 
                         }
@@ -39,76 +106,13 @@ public class Main {
                         userDecision = userDecision.toLowerCase();
 
                         if (userDecision.equalsIgnoreCase("view")) {
-                                System.out.println("You Selected 'VIEW'\n");
-                                // Ask user if they want to see all contacts or specfic
-
-                                System.out.println(
-                                                "Would you like to see ALL of the contacts saved or a SPECIFIC contact?\n");
-                                String viewAllorSpecific = input.nextLine();
-
-                                // Take the viewAllorSpecific variable and compare its value to see whether to
-                                // show all available contacts or a specific
-                                if (viewAllorSpecific.equalsIgnoreCase("ALL")) {
-                                        driver.viewAll();
-                                        break;
-                                } else {
-                                        System.out.println(
-                                                        "Please enter the last name of the contact you want to see.");
-                                        // Prompt user for the last name then call function, passing last name into
-                                        // parameter
-                                        String last_name = input.nextLine();
-
-                                        // Call function that can shows specific users
-                                        driver.viewSpecific(last_name);
-                                        break;
-                                }
 
                         } else if (userDecision.equalsIgnoreCase("add")) {
-                                System.out.println("You selected 'ADD'");
-                                // Prompt for first name of your contact
-                                System.out.println("What is the first name of your new contact");
-                                String first_name = input.nextLine();
-
-                                // Prompt for first name of your contact
-                                System.out.println("What is the last name of your new contact");
-                                String last_name = input.nextLine();
-
-                                // Prompt for phone number of your contact
-                                System.out.println("What is the phone number of your new contact");
-                                String phone_number = input.nextLine();
-
-                                // Prompt for email address of your contact
-                                System.out.println("What is the email address of your new contact");
-                                String email = input.nextLine();
-
-                                // Prompt for occupation of your contact
-                                System.out.println("What is the occupation of your new contact");
-                                String occupation = input.nextLine();
-                                // close the scanner
-                                input.close();
-
-                                driver.addContact(first_name, last_name, phone_number, email, occupation);
-                                break;
 
                         } else if (userDecision.equalsIgnoreCase("delete")) {
-                                System.out.println("You selected 'DELETE'");
-
-                                // Collect both first and last name of the contact wanting to delete
-                                System.out.println("Please enter the first name of the contact you want to delete.");
-                                String first_name = input.nextLine();
-                                System.out.println("Please enter the last name of the contact you want to delete.");
-                                String last_name = input.nextLine();
-                                // close the scanner
-                                input.close();
-
-                                driver.deleteContact(first_name, last_name);
-                                break;
 
                         } else if (userDecision.equalsIgnoreCase("update")) {
                                 System.out.println("You selected 'UPDATE'");
-                                // ensuring variables all in the same scope
-                                String first_name;
-                                String last_name;
 
                                 // Collect the first and last name of the contact wanting to update
                                 while (true) {

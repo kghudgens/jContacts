@@ -26,7 +26,8 @@ public class Main {
                 while (true) {
 
                         // Get the users input
-                        String userDecision = input.nextLine();
+                        int userDecision = input.nextInt();
+                        input.nextLine();
 
                         // Switch statement that better controls the flow
                         switch (userDecision) {
@@ -98,20 +99,12 @@ public class Main {
                                         driver.deleteContact(first_name, last_name);
                                         break;
                                 case 4:
-
+                                        break;
                                 default:
 
                         }
                         // convert the users input to lower case for comparison
-                        userDecision = userDecision.toLowerCase();
-
-                        if (userDecision.equalsIgnoreCase("view")) {
-
-                        } else if (userDecision.equalsIgnoreCase("add")) {
-
-                        } else if (userDecision.equalsIgnoreCase("delete")) {
-
-                        } else if (userDecision.equalsIgnoreCase("update")) {
+                        if (userDecision.equalsIgnoreCase("update")) {
                                 System.out.println("You selected 'UPDATE'");
 
                                 // Collect the first and last name of the contact wanting to update

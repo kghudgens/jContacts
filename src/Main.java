@@ -26,30 +26,8 @@ public class Main {
                         // Switch statement that better controls the flow
                         switch (userDecision) {
                                 case 1:
-                                        System.out.println("You Selected 'VIEW'\n");
-                                        // Ask user if they want to see all contacts or specfic
+                                        user.view();
 
-                                        System.out.println(
-                                                        "Would you like to see ALL of the contacts saved or a SPECIFIC contact?\n");
-                                        String viewAllorSpecific = input.nextLine();
-
-                                        // Take the viewAllorSpecific variable and compare its value to see whether to
-                                        // show all available contacts or a specific
-                                        if (viewAllorSpecific.equalsIgnoreCase("ALL")) {
-                                                driver.viewAll();
-                                                break;
-                                        } else {
-                                                System.out.println(
-                                                                "Please enter the last name of the contact you want to see.");
-                                                // Prompt user for the last name then call function, passing last name
-                                                // into
-                                                // parameter
-                                                last_name = input.nextLine();
-
-                                                // Call function that can shows specific users
-                                                driver.viewSpecific(last_name);
-                                                break;
-                                        }
                                 case 2:
                                         System.out.println("You selected 'ADD'");
                                         // Prompt for first name of your contact

@@ -8,7 +8,7 @@ public class Driver {
     /**
      * Returns all values in the contact book MySQL table
      */
-    public static void viewAll() {
+    public void viewAll() {
         try {
             // Get connection to database
             Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
@@ -37,7 +37,7 @@ public class Driver {
      * 
      * @param last_name
      */
-    public static void viewSpecific(String last_name) {
+    public void viewSpecific(String last_name) {
         try {
             // Get connection to database
             Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
@@ -75,8 +75,7 @@ public class Driver {
      * @param email
      * @param occupation
      */
-    public static void addContact(String first_name, String last_name, String phone_number, String email,
-            String occupation) {
+    public void addContact(String first_name, String last_name, String phone_number, String email, String occupation) {
 
         try {
             // Get connection to database
@@ -116,7 +115,7 @@ public class Driver {
      * @param first_name
      * @param last_name
      */
-    public static void deleteContact(String first_name, String last_name) {
+    public void deleteContact(String first_name, String last_name) {
         try {
             // Get connection to database
             Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
@@ -152,8 +151,7 @@ public class Driver {
      * @param toBeUpdatedValue
      * @param updatedColumn
      */
-    public static void updateContact(String first_name, String last_name, String updatedColumn,
-            String toBeUpdatedValue) {
+    public void updateContact(String first_name, String last_name, String updatedColumn, String toBeUpdatedValue) {
         try {
             // Get connection to database
             Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
@@ -178,9 +176,5 @@ public class Driver {
         } catch (Exception exc) {
             exc.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }

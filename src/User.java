@@ -36,7 +36,7 @@ public class User {
 
         switch (viewAllorSpecific) {
             case 1:
-                //
+
                 driver.viewAll();
                 break;
             case 2:
@@ -50,5 +50,27 @@ public class User {
             default:
                 System.out.println("Incorrect value entered");
         }
+    }
+
+    public void add() {
+        // Collect the information for the new contact to be added
+        System.out.println("You selected 'ADD'");
+
+        System.out.println("What is the first name of your new contact");
+        firstName = input.nextLine();
+
+        System.out.println("What is the last name of your new contact");
+        lastName = input.nextLine();
+
+        System.out.println("What is the phone number of your new contact");
+        String phoneNumber = input.nextLine();
+
+        System.out.println("What is the email address of your new contact");
+        String email = input.nextLine();
+
+        System.out.println("What is the occupation of your new contact");
+        String occupation = input.nextLine();
+
+        driver.addContact(firstName, lastName, phoneNumber, email, occupation);
     }
 }

@@ -9,14 +9,8 @@ public class Main {
                 Driver driver = new Driver();
                 // Create scanner object for repeated use
                 Scanner input = new Scanner(System.in);
-
-                // Welcome the user
                 System.out.println("\nWelcome to jContacts, a contact book powered by Java!");
-                System.out.println("\nWhat is your name?");
-
-                String userName = input.nextLine();
-                System.out.println("Hello " + userName + ", let us get started.\n");
-
+                User user = new User();
                 // Create logic that decides what the user wants to do
                 System.out.println("What would you like to do with your contacts?");
                 // Create menu that works with switch statement
@@ -98,54 +92,56 @@ public class Main {
 
                                         driver.deleteContact(first_name, last_name);
                                         break;
-                                case 4:System.out.println("You selected 'UPDATE'");
+                                case 4:
+                                        System.out.println("You selected 'UPDATE'");
 
-                                // Collect the first and last name of the contact wanting to update
-                                while (true) {
-                                        System.out.println(
-                                                        "Please enter the first name of the contact you want to update.");
-                                        first_name = input.nextLine();
-                                        System.out.println(
-                                                        "Please enter the last name of the contact you want to update.");
-                                        last_name = input.nextLine();
-
-                                        System.out.println("Are you sure you want to update " + first_name + " "
-                                                        + last_name + "'s information. YES or NO");
-
-                                        String verifyUpdate = input.nextLine();
-
-                                        if (verifyUpdate.equalsIgnoreCase("no")) {
-                                                break;
-                                        } else if (verifyUpdate.equalsIgnoreCase("no")) {
+                                        // Collect the first and last name of the contact wanting to update
+                                        while (true) {
                                                 System.out.println(
-                                                                "Please enter the correct first and last name of the contact you would like to update");
-                                        } else {
-                                                System.out.println("You didnt enter the correct answer. YES or NO");
+                                                                "Please enter the first name of the contact you want to update.");
+                                                first_name = input.nextLine();
+                                                System.out.println(
+                                                                "Please enter the last name of the contact you want to update.");
+                                                last_name = input.nextLine();
+
+                                                System.out.println("Are you sure you want to update " + first_name + " "
+                                                                + last_name + "'s information. YES or NO");
+
+                                                String verifyUpdate = input.nextLine();
+
+                                                if (verifyUpdate.equalsIgnoreCase("no")) {
+                                                        break;
+                                                } else if (verifyUpdate.equalsIgnoreCase("no")) {
+                                                        System.out.println(
+                                                                        "Please enter the correct first and last name of the contact you would like to update");
+                                                } else {
+                                                        System.out.println(
+                                                                        "You didnt enter the correct answer. YES or NO");
+                                                }
                                         }
-                                }
-                                // inform user what they can update
-                                System.out.println(
-                                                "What portion of the contact would you like to update? Your options are:"
-                                                                + "\nFIRST NAME \n LAST NAME \n PHONE NUMBER \n EMAIL \n OCCUPATION");
+                                        // inform user what they can update
+                                        System.out.println(
+                                                        "What portion of the contact would you like to update? Your options are:"
+                                                                        + "\nFIRST NAME \n LAST NAME \n PHONE NUMBER \n EMAIL \n OCCUPATION");
 
-                                // Collect the choices
-                                String updateColumnChoice = input.nextLine();
-                                System.out.println("What would you like to update it to? ");
-                                String updatedValue = input.nextLine();
+                                        // Collect the choices
+                                        String updateColumnChoice = input.nextLine();
+                                        System.out.println("What would you like to update it to? ");
+                                        String updatedValue = input.nextLine();
 
-                                // close the scanner
-                                input.close();
+                                        // close the scanner
+                                        input.close();
 
-                                driver.updateContact(first_name, last_name, updateColumnChoice, updatedValue);
-                                break;
-                                        
-                                default:   System.out.println("You didnt select one of the above options.");
-                                System.out.println("Please select again from the provided choices\n.");
+                                        driver.updateContact(first_name, last_name, updateColumnChoice, updatedValue);
+                                        break;
+
+                                default:
+                                        System.out.println("You didnt select one of the above options.");
+                                        System.out.println("Please select again from the provided choices\n.");
 
                         }
-                        }
-                        continue;
                 }
 
         }
+
 }

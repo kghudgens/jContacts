@@ -91,4 +91,45 @@ public class User {
 
         driver.deleteContact(firstName, lastName);
     }
+
+    /**
+     * Creates query that updates a data entry based on the users selection
+     */
+    public void update() {
+        String updateColumnChoice;
+        String updatedValue;
+        String verifyUpdate;
+
+        System.out.println("You selected 'UPDATE'");
+
+        // Create while loop to take in the information about the data to update
+        while (true) {
+            System.out.println("Please enter the first name of the contact you want to update.");
+            firstName = input.nextLine();
+            System.out.println("Please enter the last name of the contact you want to update.");
+            lastName = input.nextLine();
+
+            System.out.println(
+                    "Are you sure you want to update " + firstName + " " + lastName + "'s information. YES or NO");
+
+            verifyUpdate = input.nextLine();
+
+            if (verifyUpdate.equalsIgnoreCase("yes")) {
+                break;
+            } else if (verifyUpdate.equalsIgnoreCase("no")) {
+                continue;
+            } else {
+                System.out.println("You didnt enter the correct answer. YES or NO");
+            }
+        }
+
+        System.out.println("What portion of the contact would you like to update? Your options are:"
+                + "\nFIRST NAME \n LAST NAME \n PHONE NUMBER \n EMAIL \n OCCUPATION");
+
+        updateColumnChoice = input.nextLine();
+        System.out.println("What would you like to update it to? ");
+        updatedValue = input.nextLine();
+
+        driver.updateContact(firstName, lastName, updateColumnChoice, updatedValue);
+    }
 }

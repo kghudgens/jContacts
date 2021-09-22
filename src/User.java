@@ -52,6 +52,9 @@ public class User {
         }
     }
 
+    /**
+     * Creates a query that posts data to the database
+     */
     public void add() {
         // Collect the information for the new contact to be added
         System.out.println("You selected 'ADD'");

@@ -19,7 +19,7 @@ public class ContactBook {
                 System.out.println("What would you like to do with your contacts?");
 
                 while (flag) {
-                        System.out.println("1. Add\n2. View\n3. Update\n4. Delete\n5. Quit");
+                        System.out.println("1. View\n2. Add\n3. Delete\n4. Update\n5. Quit");
                         // Get the users input
                         userDecision = input.nextInt();
                         input.nextLine();

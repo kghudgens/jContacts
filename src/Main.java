@@ -31,20 +31,7 @@ public class Main {
                                 case 2:
                                         user.add();
                                 case 3:
-                                        System.out.println("You selected 'DELETE'");
-
-                                        // Collect both first and last name of the contact wanting to delete
-                                        System.out.println(
-                                                        "Please enter the first name of the contact you want to delete.");
-                                        first_name = input.nextLine();
-                                        System.out.println(
-                                                        "Please enter the last name of the contact you want to delete.");
-                                        last_name = input.nextLine();
-                                        // close the scanner
-                                        input.close();
-
-                                        driver.deleteContact(first_name, last_name);
-                                        break;
+                                        user.delete();
                                 case 4:
                                         System.out.println("You selected 'UPDATE'");
 

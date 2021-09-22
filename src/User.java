@@ -76,4 +76,19 @@ public class User {
 
         driver.addContact(firstName, lastName, phoneNumber, email, occupation);
     }
+
+    /**
+     * Creates a query that deletes the passed in value if in database
+     */
+    public void delete() {
+        System.out.println("You selected 'DELETE'");
+
+        // Collect both first and last name of the contact wanting to delete
+        System.out.println("Please enter the first name of the contact you want to delete.");
+        firstName = input.nextLine();
+        System.out.println("Please enter the last name of the contact you want to delete.");
+        lastName = input.nextLine();
+
+        driver.deleteContact(firstName, lastName);
+    }
 }

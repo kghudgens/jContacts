@@ -1,5 +1,11 @@
 import java.util.Scanner;
 
+/**
+ * User is a class that provides the methods for the user object. On
+ * instantiation, the user object can use its' various methods to query the
+ * MySQL database, creating, reading, updating, and deleting whatever they
+ * please.
+ */
 public class User {
     // Make the driver object
     // The user object will be the entity using the Driver
@@ -9,28 +15,28 @@ public class User {
 
     String firstName;
     String lastName;
-    String userName;
 
+    /**
+     * Explicitly instantiates the User object
+     */
     public User() {
-        // Welcome the user
-        System.out.println("\nWhat is your username?");
-
-        // Collect user name
-        this.userName = input.nextLine();
-        System.out.println("Hello " + userName + ", let us get started.\n");
     }
 
+    /**
+     * Query displayed of either all data entries or specific one
+     */
     public void view() {
         System.out.println("You Selected 'VIEW'\n");
         // Show user their options
         System.out.println("1. All Contacts\n2. Specific Contact");
-
+        /** The user object's menu selection */
         int viewAllorSpecific = input.nextInt();
         // Consume next line because nextInt() does not
         input.nextLine();
 
         switch (viewAllorSpecific) {
             case 1:
+                //
                 driver.viewAll();
                 break;
             case 2:

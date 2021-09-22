@@ -29,32 +29,7 @@ public class Main {
                                         user.view();
 
                                 case 2:
-                                        System.out.println("You selected 'ADD'");
-                                        // Prompt for first name of your contact
-                                        System.out.println("What is the first name of your new contact");
-                                        first_name = input.nextLine();
-
-                                        // Prompt for first name of your contact
-                                        System.out.println("What is the last name of your new contact");
-                                        last_name = input.nextLine();
-
-                                        // Prompt for phone number of your contact
-                                        System.out.println("What is the phone number of your new contact");
-                                        String phone_number = input.nextLine();
-
-                                        // Prompt for email address of your contact
-                                        System.out.println("What is the email address of your new contact");
-                                        String email = input.nextLine();
-
-                                        // Prompt for occupation of your contact
-                                        System.out.println("What is the occupation of your new contact");
-                                        String occupation = input.nextLine();
-                                        // close the scanner
-                                        input.close();
-
-                                        driver.addContact(first_name, last_name, phone_number, email, occupation);
-                                        break;
-
+                                        user.add();
                                 case 3:
                                         System.out.println("You selected 'DELETE'");
 

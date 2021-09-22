@@ -3,18 +3,18 @@ import java.util.Scanner;
 public class ContactBook {
 
         public static void main(String[] args) {
+                // Declare the userDecision variable in the global scope, so it can be used in
+                // the while loop
                 int userDecision;
                 // Create scanner object for repeated use
                 Scanner input = new Scanner(System.in);
                 System.out.println("\nWelcome to jContacts, a contact book powered by Java!");
+                // Create instance of the User class to interact with the database
                 User user = new User();
-                // Create logic that decides what the user wants to do
                 System.out.println("What would you like to do with your contacts?");
-                // Create menu that works with switch statement
-                System.out.println("1. Add\n2. View\n3. Update\n4. Delete\n5. Quit");
 
                 while (true) {
-
+                        System.out.println("1. Add\n2. View\n3. Update\n4. Delete\n5. Quit");
                         // Get the users input
                         userDecision = input.nextInt();
                         input.nextLine();
@@ -45,6 +45,8 @@ public class ContactBook {
                         }
                         break;
                 }
+
+                input.close();
 
         }
 

@@ -24,7 +24,6 @@ public class ContactBook {
                         userDecision = input.nextInt();
                         input.nextLine();
 
-                        // Switch statement that better controls the flow
                         switch (userDecision) {
                                 case 1:
                                         user.view();
@@ -51,7 +50,7 @@ public class ContactBook {
 
                         }
                 }
-
+                // Close the scanner
                 input.close();
 
         }

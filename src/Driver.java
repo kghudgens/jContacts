@@ -9,14 +9,27 @@ import java.sql.Statement;
  * user requested operations.
  */
 public class Driver {
+    // Create connection object for global use
+    Connection myConn;
+
+    /**
+     * On instantiation the connection is made to the MySQL database.
+     */
+    public Driver() {
+        try {
+            // Get connection to database
+            myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin", "2727Gonzalo!");
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+
+    }
+
     /**
      * Returns all values in the contact book MySQL table
      */
     public void viewAll() {
         try {
-            // Get connection to database
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
-                    "2727Gonzalo!");
             // Create a statement
             Statement myStmt = myConn.createStatement();
             // Execute sql query
@@ -43,9 +56,6 @@ public class Driver {
      */
     public void viewSpecific(String lastName) {
         try {
-            // Get connection to database
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
-                    "2727Gonzalo!");
             // Create a statement
             Statement myStmt = myConn.createStatement();
             // Execute sql query
@@ -82,9 +92,6 @@ public class Driver {
     public void addContact(String firstName, String lastName, String phone_number, String email, String occupation) {
 
         try {
-            // Get connection to database
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
-                    "2727Gonzalo!");
 
             // The sql insert statement
             // values will be filled in by the prepared statement
@@ -121,10 +128,6 @@ public class Driver {
      */
     public void deleteContact(String firstName, String lastName) {
         try {
-            // Get connection to database
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
-                    "2727Gonzalo!");
-
             // Create sql command for deleting
             String query = "DELETE FROM contacts WHERE firstName= ? AND lastName = ? ";
 
@@ -157,9 +160,6 @@ public class Driver {
      */
     public void updateContact(String firstName, String lastName, String updatedColumn, String toBeUpdatedValue) {
         try {
-            // Get connection to database
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin",
-                    "2727Gonzalo!");
 
             // Create sql command for updating
             String query = "UPDATE contacts SET " + updatedColumn + " = ? WHERE firstName = ? AND lastName = ? ";

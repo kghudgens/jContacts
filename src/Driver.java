@@ -4,6 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * The Driver class creates a connection to the MySQL database and performs the
+ * user requested operations.
+ */
 public class Driver {
     /**
      * Returns all values in the contact book MySQL table

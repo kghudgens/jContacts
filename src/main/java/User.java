@@ -1,14 +1,16 @@
+package main.java;
+
 import java.util.Scanner;
 
 /**
- * User is a class that provides the methods for the user object. On
+ * main.java.User is a class that provides the methods for the user object. On
  * instantiation, the user object can use its' various methods to query the
  * MySQL database, creating, reading, updating, and deleting whatever they
  * please.
  */
 public class User {
     // Make the driver object
-    // The user object will be the entity using the Driver
+    // The user object will be the entity using the main.java.Driver
     Driver driver = new Driver();
 
     Scanner input = new Scanner(System.in);
@@ -17,7 +19,7 @@ public class User {
     String lastName;
 
     /**
-     * Explicitly instantiates the User object
+     * Explicitly instantiates the main.java.User object
      */
     public User() {
     }
@@ -56,25 +58,26 @@ public class User {
      * Creates a query that posts data to the database
      */
     public void add() {
+        Contact contact = new Contact();
         // Collect the information for the new contact to be added
         System.out.println("You selected 'ADD'");
 
         System.out.println("What is the first name of your new contact");
-        firstName = input.nextLine();
+        contact.setFirstName(input.nextLine());
 
         System.out.println("What is the last name of your new contact");
-        lastName = input.nextLine();
+        contact.setLastName(input.nextLine());
 
         System.out.println("What is the phone number of your new contact");
-        String phoneNumber = input.nextLine();
+        contact.setPhoneNumber(input.nextLine());
 
         System.out.println("What is the email address of your new contact");
-        String email = input.nextLine();
+        contact.setEmail(input.nextLine());
 
         System.out.println("What is the occupation of your new contact");
-        String occupation = input.nextLine();
+        contact.setOccupation(input.nextLine());
 
-        driver.addContact(firstName, lastName, phoneNumber, email, occupation);
+        driver.addContact(contact);
     }
 
     /**

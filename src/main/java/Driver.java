@@ -1,3 +1,5 @@
+package main.java;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -5,12 +7,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
- * The Driver class creates a connection to the MySQL database and performs the
+ * The main.java.Driver class creates a connection to the MySQL database and performs the
  * user requested operations.
  */
 public class Driver {
     // Create connection object for global use
-    Connection myConn;
+    private Connection myConn;
 
     /**
      * On instantiation the connection is made to the MySQL database.
@@ -52,19 +54,19 @@ public class Driver {
     /**
      * Returns the "last name " column value that matches in the MySQL table
      * 
-     * @param lastName
+     * @param contact
      */
-    public void viewSpecific(String lastName) {
+    public void viewSpecific(Contact contact) {
         try {
             // Create a statement
             Statement myStmt = myConn.createStatement();
             // Execute sql query
-            ResultSet myRs = myStmt.executeQuery("SELECT * from contacts WHERE lastName = " + "'" + lastName + "'");
+            ResultSet myRs = myStmt.executeQuery("SELECT * from contacts WHERE lastName = " + "'" + contact.getLastName()+  "'");
             // process the result set into readable
 
             // add logic that handles empty result
-            if (myRs.next() == false) {
-                System.out.println("'" + lastName + "', contact information has not been saved to this application.");
+            if (!myRs.next()) {
+                System.out.println("'" + contact.getLastName() + "', contact information has not been saved to this application.");
             }
             while (myRs.next()) {
                 System.out.println("Date added: " + myRs.getDate("submission_date") + ", Last Name: "
@@ -83,13 +85,9 @@ public class Driver {
     /**
      * Allows user to make a insert query to the contact book MySQL table.
      * 
-     * @param firstName
-     * @param lastName
-     * @param phone_number
-     * @param email
-     * @param occupation
+     * @param contact
      */
-    public void addContact(String firstName, String lastName, String phone_number, String email, String occupation) {
+    public void addContact(Contact contact) {
 
         try {
 
@@ -100,11 +98,11 @@ public class Driver {
 
             // Finished the prepared statement
             PreparedStatement preparedStmt = myConn.prepareStatement(query);
-            preparedStmt.setString(1, firstName);
-            preparedStmt.setString(2, lastName);
-            preparedStmt.setString(3, phone_number);
-            preparedStmt.setString(4, email);
-            preparedStmt.setString(5, occupation);
+            preparedStmt.setString(1, contact.getFirstName());
+            preparedStmt.setString(2, contact.getLastName());
+            preparedStmt.setString(3, contact.getPhoneNumber());
+            preparedStmt.setString(4, contact.getEmail());
+            preparedStmt.setString(5, contact.getOccupation());
 
             // execute the prepared statement
             preparedStmt.execute();
@@ -113,7 +111,7 @@ public class Driver {
             myConn.close();
 
             // Verification message
-            System.out.println(firstName + " " + lastName + " has been added to the contact book.");
+            System.out.println(contact.getFirstName() + " " + contact.getLastName() + " has been added to the contact book.");
 
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -123,18 +121,17 @@ public class Driver {
     /**
      * Delete the contact that matches the entered first and last name
      * 
-     * @param firstName
-     * @param lastName
+     * @param contact
      */
-    public void deleteContact(String firstName, String lastName) {
+    public void deleteContact(Contact contact) {
         try {
             // Create sql command for deleting
             String query = "DELETE FROM contacts WHERE firstName= ? AND lastName = ? ";
 
             // Create the prepared statement
             PreparedStatement preparedStmt = myConn.prepareStatement(query);
-            preparedStmt.setString(1, firstName);
-            preparedStmt.setString(2, lastName);
+            preparedStmt.setString(1, contact.getFirstName());
+            preparedStmt.setString(2, contact.getLastName());
 
             // Execute the statement
             preparedStmt.execute();
@@ -143,7 +140,7 @@ public class Driver {
             myConn.close();
 
             // verification message for the user
-            System.out.println("The contact for " + firstName + " " + lastName + ", has been deleted.");
+            System.out.println("The contact for " + contact.getFirstName() + " " + contact.getLastName() + ", has been deleted.");
 
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -153,12 +150,9 @@ public class Driver {
     /**
      * Creates query to update selected values
      * 
-     * @param firstName
-     * @param lastName
-     * @param toBeUpdatedValue
-     * @param updatedColumn
+     * @param contact
      */
-    public void updateContact(String firstName, String lastName, String updatedColumn, String toBeUpdatedValue) {
+    public void updateContact(Contact contact) {
         try {
 
             // Create sql command for updating

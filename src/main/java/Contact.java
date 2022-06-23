@@ -20,6 +20,10 @@ public class Contact {
         this.lastName = lastName;
     }
 
+    public Contact(int id){
+        this.id = id;
+    }
+
 
     public Contact(){
 

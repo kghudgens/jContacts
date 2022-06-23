@@ -66,6 +66,9 @@ public class Driver {
             ResultSet myRs = myStmt.executeQuery("SELECT * from contacts WHERE lastName = " + "'" + contact.getLastName()+  "'");
             // process the result set into readable
 
+            if (myRs == null){
+                throw new ContactNotFoundException("Contact not found");
+            }
             // add logic that handles empty result
             if (!myRs.next()) {
                 System.out.println("'" + contact.getLastName() + "', contact information has not been saved to this application.");

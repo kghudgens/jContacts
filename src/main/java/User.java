@@ -29,6 +29,7 @@ public class User {
         Driver driver = new Driver();
         Scanner input = new Scanner(System.in);
 
+        Contact contact = null;
 
         System.out.println("You Selected 'VIEW'\n");
         // Show user their options
@@ -46,17 +47,16 @@ public class User {
             case 2:
                 // Collect information from user, to complete the query to database
                 System.out.println("Please enter the ID of the contact you want to see.");
-                Contact contact = new Contact(input.nextInt());
+                contact = new Contact(input.nextInt());
                 input.nextLine();
 
                 // Call function that can shows specific users
-                driver.viewSpecific(contact);
+                contact = driver.viewSpecific(contact);
                 break;
             default:
                 System.out.println("Incorrect value entered");
         }
-
-
+        return contact;
     }
 
     /**

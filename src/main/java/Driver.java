@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
 /**
  * The main.java.Driver class creates a connection to the MySQL database and performs the
@@ -13,14 +14,15 @@ import java.sql.Statement;
 public class Driver {
     // Create connection object for global use
     private Connection myConn;
-
+    private ResourceBundle reader = null;
     /**
-     * On instantiation the connection is made to the MySQL database.
+     * Construtor method creates connection to the MySQL database instance.
      */
     public Driver() {
         try {
+            reader = ResourceBundle.getBundle("dbconfig.properties");
             // Get connection to database
-            myConn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java_projects", "admin", "2727Gonzalo!");
+            myConn = DriverManager.getConnection(reader.getString("db.url"), reader.getString("db.username"), reader.getString("2727Gonzalo!"));
         } catch (Exception exc) {
             exc.printStackTrace();
         }

@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.Scanner;
 
 public class ContactBook {
@@ -14,7 +16,7 @@ public class ContactBook {
                 Scanner input = new Scanner(System.in);
                 System.out.println("\nWelcome to jContacts, a contact book powered by Java!");
 
-                // Create instance of the User class to interact with the database
+                // Create instance of the main.java.User class to interact with the database
                 User user = new User();
                 System.out.println("What would you like to do with your contacts?");
 
@@ -25,29 +27,21 @@ public class ContactBook {
                         input.nextLine();
 
                         switch (userDecision) {
-                                case 1:
-                                        user.view();
-                                        break;
-                                case 2:
-                                        user.add();
-                                        break;
-                                case 3:
-                                        user.delete();
-                                        break;
-                                case 4:
-                                        user.update();
-                                        break;
-                                case 5:
+                                case 1 -> user.view();
+                                case 2 -> user.add();
+                                case 3 -> user.delete();
+                                case 4 -> user.update();
+                                case 5 -> {
                                         System.out.println("You selected quit.");
                                         System.out.println("Thank you very much for using the program.");
                                         // Set the flag to false to break the while loop and finish the program
                                         flag = false;
-                                        break;
-                                default:
+                                }
+                                default -> {
                                         System.out.println("You didnt select one of the above options.");
                                         System.out.println("Please select again from the provided choices\n.");
                                         continue;
-
+                                }
                         }
                 }
                 // Close the scanner

@@ -160,23 +160,27 @@ public class Driver {
      */
     public void updateContact(Contact contact) {
         try {
+            // The sql insert statement
+            // values will be filled in by the prepared statement
 
-            // Create sql command for updating
-            String query = "UPDATE contacts SET " + updatedColumn + " = ? WHERE firstName = ? AND lastName = ? ";
+            String query = "UPDATE contacts SET firstName= ? lastName = ? email = ? occupation = ? phoneNumber = ? WHERE id = ?";
 
+            // Finished the prepared statement
             PreparedStatement preparedStmt = myConn.prepareStatement(query);
-            preparedStmt.setString(1, toBeUpdatedValue);
-            preparedStmt.setString(2, firstName);
-            preparedStmt.setString(3, lastName);
+            preparedStmt.setString(1, contact.getFirstName());
+            preparedStmt.setString(2, contact.getLastName());
+            preparedStmt.setString(5, contact.getPhoneNumber());
+            preparedStmt.setString(3, contact.getEmail());
+            preparedStmt.setString(4, contact.getOccupation());
+            preparedStmt.setInt(6, contact.getID());
 
-            // push prepared statement to the database
+            // execute the prepared statement
             preparedStmt.executeUpdate();
 
             // close the connection to the database
-            myConn.close();
 
             // verification message shown to user
-            System.out.println("The contact information for " + firstName + " " + lastName + " has been updated");
+            System.out.println("The contact information for " + contact.getLastName() +  " has been updated");
         } catch (Exception exc) {
             exc.printStackTrace();
         }

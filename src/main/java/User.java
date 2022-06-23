@@ -11,12 +11,9 @@ import java.util.Scanner;
 public class User {
     // Make the driver object
     // The user object will be the entity using the main.java.Driver
-    Driver driver = new Driver();
+    private Driver driver = new Driver();
 
-    Scanner input = new Scanner(System.in);
-
-    String firstName;
-    String lastName;
+    private Scanner input = new Scanner(System.in);
 
     /**
      * Explicitly instantiates the main.java.User object
@@ -27,7 +24,12 @@ public class User {
     /**
      * Query displayed of either all data entries or specific one
      */
-    public void view() {
+    public static Contact view() {
+
+        Driver driver = new Driver();
+        Scanner input = new Scanner(System.in);
+
+
         System.out.println("You Selected 'VIEW'\n");
         // Show user their options
         System.out.println("1. All Contacts\n2. Specific Contact");
@@ -43,21 +45,28 @@ public class User {
                 break;
             case 2:
                 // Collect information from user, to complete the query to database
-                System.out.println("Please enter the last name of the contact you want to see.");
-                this.lastName = input.nextLine();
+                System.out.println("Please enter the ID of the contact you want to see.");
+                Contact contact = new Contact(input.nextInt());
+                input.nextLine();
 
                 // Call function that can shows specific users
-                driver.viewSpecific(this.lastName);
+                driver.viewSpecific(contact);
                 break;
             default:
                 System.out.println("Incorrect value entered");
         }
+
+
     }
 
     /**
      * Creates a query that posts data to the database
      */
-    public void add() {
+    public static void add() {
+
+        Driver driver = new Driver();
+        Scanner input = new Scanner(System.in);
+
         Contact contact = new Contact();
         // Collect the information for the new contact to be added
         System.out.println("You selected 'ADD'");
@@ -86,35 +95,43 @@ public class User {
     public void delete() {
         System.out.println("You selected 'DELETE'");
 
+        Contact contact = new Contact();
         // Collect both first and last name of the contact wanting to delete
         System.out.println("Please enter the first name of the contact you want to delete.");
-        firstName = input.nextLine();
+        contact.setFirstName(input.nextLine());
         System.out.println("Please enter the last name of the contact you want to delete.");
-        lastName = input.nextLine();
+        contact.setLastName(input.nextLine());
 
-        driver.deleteContact(firstName, lastName);
+        driver.deleteContact(contact);
     }
 
     /**
      * Creates query that updates a data entry based on the users selection
      */
     public void update() {
-        String updateColumnChoice;
-        String updatedValue;
+
         String verifyUpdate;
 
         System.out.println("You selected 'UPDATE'");
 
+        Contact contact = new Contact();
         // Create while loop to take in the information about the data to update
         while (true) {
-            System.out.println("Please enter the first name of the contact you want to update.");
-            firstName = input.nextLine();
-            System.out.println("Please enter the last name of the contact you want to update.");
-            lastName = input.nextLine();
+            System.out.println("Please enter the ID of the contact you want to update.");
+            // store the id
+            contact.setID(input.nextInt());
+            input.nextInt();
 
-            System.out.println(
-                    "Are you sure you want to update " + firstName + " " + lastName + "'s information. YES or NO");
+            // grab the contact in the database
+            Contact contactToBeUpdated = view();
 
+            // check that the contact exist
+            if(contactToBeUpdated == null){
+                throw new ContactNotFoundException("Contact not found in database.");
+            }
+
+            // prompt user to make sure they want to update the contact
+            System.out.println("Are you sure you want to update " + contactToBeUpdated.getFirstName()+ " " + contact.getLastName() + "'s information. YES or NO");
             verifyUpdate = input.nextLine();
 
             if (verifyUpdate.equalsIgnoreCase("yes")) {
@@ -122,17 +139,26 @@ public class User {
             } else if (verifyUpdate.equalsIgnoreCase("no")) {
                 continue;
             } else {
-                System.out.println("You didnt enter the correct answer. YES or NO");
+                System.out.println("You didnt enter valid answer. YES or NO");
             }
         }
 
-        System.out.println("What portion of the contact would you like to update? Your options are:"
-                + "\nFIRST NAME \n LAST NAME \n PHONE NUMBER \n EMAIL \n OCCUPATION");
+        // if yes the user will enter all details
+        System.out.println("First Name: ");
+        contact.setFirstName(input.nextLine());
 
-        updateColumnChoice = input.nextLine();
-        System.out.println("What would you like to update it to? ");
-        updatedValue = input.nextLine();
+        System.out.println("Last Name: ");
+        contact.setLastName(input.nextLine());
 
-        driver.updateContact(firstName, lastName, updateColumnChoice, updatedValue);
+        System.out.println("Phone Number: ");
+        contact.setPhoneNumber(input.nextLine());
+
+        System.out.println("Email Address: ");
+        contact.setEmail(input.nextLine());
+
+        System.out.println("Occupation: ");
+        contact.setOccupation(input.nextLine());
+
+        driver.updateContact(contact);
     }
 }

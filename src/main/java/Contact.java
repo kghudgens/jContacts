@@ -1,19 +1,25 @@
 package main.java;
 
 public class Contact {
+    private int id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
     private String occupation;
 
-    public Contact(String firstName, String lastName, String phoneNumber, String email, String occupation) {
+    public Contact(int id, String firstName, String lastName, String phoneNumber, String email, String occupation) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.occupation = occupation;
     }
+
+    public Contact(String lastName){
+        this.lastName = lastName;
+    }
+
 
     public Contact(){
 
@@ -59,4 +65,11 @@ public class Contact {
         this.occupation = occupation;
     }
 
+    public int getID(){
+        return this.id;
+    }
+
+    public void setID(int id){
+        this.id = id;
+    }
 }

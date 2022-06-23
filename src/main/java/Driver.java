@@ -56,7 +56,9 @@ public class Driver {
      * 
      * @param contact
      */
-    public void viewSpecific(Contact contact) {
+    public Contact viewSpecific(Contact contact) {
+        Contact viewContact = null;
+
         try {
             // Create a statement
             Statement myStmt = myConn.createStatement();
@@ -74,12 +76,16 @@ public class Driver {
                         + " Phone Number: " + myRs.getString("phone_number") + ", Email Address: "
                         + myRs.getString("email") + " Occupation: " + myRs.getString("occupation"));
 
+                viewContact = new Contact(01, myRs.getString("lastName"),
+                        myRs.getString("firstName"), myRs.getString("Phone Number"),
+                        myRs.getString("email"), myRs.getString("occupation")
+                        );
             }
-            // close the connection to the database
-            myConn.close();
         } catch (Exception exc) {
             exc.printStackTrace();
         }
+
+        return viewContact;
     }
 
     /**
